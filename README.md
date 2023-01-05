@@ -1,5 +1,5 @@
 # cse210-student-template
-This is the starter code for students in CSE 210.
+Ronaldo Martins Schmidt - 2023-01-05
 
 This repository contains the starter code for many different projects. They are arranged as follows:
 
