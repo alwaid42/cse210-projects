@@ -13,7 +13,7 @@ class Program
             Console.WriteLine("Enter number:");
             string userResponse = Console.ReadLine();
             userNumber = int.Parse(userResponse);
-            if(userNumber != 0);
+            if(userNumber != 0)
             {
                 numbers.Add(userNumber);
             }
