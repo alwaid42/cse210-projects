@@ -27,7 +27,7 @@ class Program
             {
                 Console.WriteLine("You guessed it!");
             }
-            guessCount = guessCount + 1;
+            guessCount++;
         } while (guess != magicNumber);
         Console.WriteLine($"It took you {guessCount} guesses to find the Magic Number!");
     }
