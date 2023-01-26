@@ -10,7 +10,7 @@ public class PromptGenerator
         "What have you learned today?",
         "Who have you helped today?",
         "Where did you go today?",
-        "What you wish you had gone different today?",
+        "What you wish you had done different today?",
         "What new things you want to accomplish?",
         "How have you seen the Lords' hand in your life today?"
     };
