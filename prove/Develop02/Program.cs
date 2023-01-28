@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+//using System.Linq;
+//using System.Collections.Generic;
 
 class Program
 {
@@ -45,16 +47,19 @@ class Program
 
                     foreach (string line in lines)
                     {
-                        char[] delimiterChars = {':','-', '?'};
+                        char[] delimiterChars = {'|'};
                         Entry readEntry = new Entry();
                         string[] parts = line.Split(delimiterChars);
 
-                        readEntry._date = parts[1].Trim();
-                        readEntry._prompt = parts[2].Trim() + "?";
-                        readEntry._message = parts[3].Trim();
+                        readEntry._date = parts[1];
+                        readEntry._prompt = parts[2];
+                        readEntry._message = parts[3];
                         myJournal._entries.Add(readEntry);
                     }
-                    Console.WriteLine(" ");
+// Was attempting to check if the entry red from the file already existed in the Journal to avoid duplicates, bus wasn't able to do it.
+// Tried to use LINQ but it doesnt seem to work with my class, just strings.
+//                    IEnumerable<Entry> check = myJournal._entries.Distinct();
+//                    check.DisplayEntry();
                     break;
 
                 case "4":
@@ -67,7 +72,7 @@ class Program
                         // You can use the $ and include variables just like with Console.WriteLine
                         foreach (Entry entry in myJournal._entries)
                         {
-                            outputFile.WriteLine($"Date: {entry._date} - {entry._prompt} {entry._message}");
+                            outputFile.WriteLine($"Date|{entry._date}|{entry._prompt}|{entry._message}");
                         }     
                     }
                     Console.WriteLine(" ");
