@@ -29,13 +29,45 @@ public class Scripture
         Console.WriteLine($"{_reference.GetBook()} {_reference.GetChapter()}:{_reference.GetVerse()}{text}");
     }
 
-    //function that checks which words are hidden, then randomly select half of the not hidden words and hides them
+    //function that hides all words
+    /*
     public void HideWords()
     {
         foreach (Word w in _text)
         {
             w.Hide();
         }
+    }
+    */
+
+    //function that checks which words are hidden, then randomly select half of the not hidden words and hides them
+    public void HideWords()
+    {
+        int counter = 0;
+        List<int> notHidden = new List<int>();
+        foreach (Word w in _text)
+        {
+            if(!w.GetHidden())
+            {
+                notHidden.Add(counter);
+            }
+            counter++;
+        }
+        
+        int notHiddenWords = notHidden.Count;
+        Random rnd = new Random();
+        List<int> randomNumber = new List<int>();
+        
+        for (int j = 0; j <= (notHiddenWords/2.0); j++)
+        {
+            randomNumber.Add(rnd.Next(notHiddenWords-1));
+        }
+
+        foreach (int r in randomNumber)
+        {
+            _text[notHidden[r]].Hide();
+        }
+
     }
 
     //function that checks if all the words are hidden
