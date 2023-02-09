@@ -30,10 +30,13 @@ class Program
             {
                 indicator = false;
             }
-            if(myScripture.CompletelyHidden())
+
+            bool isHidden  = myScripture.CompletelyHidden();
+            if(isHidden)
             {
                 indicator = false;
             }
+            
             myScripture.HideWords();
         }
     }

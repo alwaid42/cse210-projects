@@ -32,6 +32,13 @@ public class Word
 
     public bool GetHidden()
     {
-        return _isHidden;
+        if (_isHidden == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

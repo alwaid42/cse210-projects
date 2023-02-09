@@ -28,20 +28,25 @@ public class Scripture
 
     public void HideWords()
     {
-
+        foreach (Word w in _text)
+        {
+            w.Hide();
+        }
     }
 
     public bool CompletelyHidden()
     {
         int counter = 0;
+        int hiddenWords = 0;
         foreach (Word w in _text)
         {
+            counter++;
             if(w.GetHidden())
             {
-                counter++;
+                hiddenWords++;
             }
         }
-        if(counter == 0)
+        if(counter == hiddenWords)
         {
             return true;
         }
