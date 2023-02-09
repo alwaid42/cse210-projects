@@ -2,6 +2,7 @@ using System;
 
 public class Reference
 {
+    //Store the Reference book, chapter and verse.
     private string _book;
     private string _chapter;
     private string _verse;
