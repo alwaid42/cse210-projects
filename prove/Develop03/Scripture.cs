@@ -26,7 +26,7 @@ public class Scripture
         {
             text += " " + s.GetWord();
         }
-        Console.WriteLine($"{_reference.GetBook()} {_reference.GetChapter()}:{_reference.GetVerse()}{text}");
+        Console.WriteLine($"{_reference.GetReference()}{text}");
     }
 
     //function that hides all words

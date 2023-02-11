@@ -13,7 +13,7 @@ public class Word
         _isHidden = false;
     }
 
-    //Function that returns the word if not hidden and underscores if the word is hidden.
+    //Function that returns the word if not hidden and a string of underscores if the word is hidden.
     public string GetWord()
     {
         if(_isHidden == false)
@@ -33,6 +33,14 @@ public class Word
     {
         _isHidden = true;
     }
+
+    //Function that turns a word into not hidden
+    /*
+    public voide Show()
+    {
+        _isHidden = false;
+    }
+    */
 
     // Function that checks if the word is hidden.
     public bool GetHidden()

@@ -7,6 +7,13 @@ public class Reference
     private string _chapter;
     private string _verse;
 
+    public void SetReference(string book, string chapter, int verse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = verse.ToString();
+    }
+    
     public void SetReference(string book, string chapter, string verse)
     {
         _book = book;
@@ -14,6 +21,7 @@ public class Reference
         _verse = verse;
     }
 
+    /*
     public string GetBook()
     {
         return _book;
@@ -27,5 +35,12 @@ public class Reference
     public string GetVerse()
     {
         return _verse;
+    s}
+    */
+
+    public string GetReference()
+    {
+        string reference = _book + " " + _chapter + ":" + _verse;
+        return reference;
     }
 }
