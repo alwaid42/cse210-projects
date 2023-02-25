@@ -1,10 +1,20 @@
 public class ReflectingActivity : Activity
-{
+{   
+    private List<string> _questions = new List<string>();
     public ReflectingActivity()
     {
         _name = "Reflecting";
         _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
         _duration = 50;
+        _questions.Add("Why was this experience meaningful to you?");
+        _questions.Add("Have you ever done anything like this before?");
+        _questions.Add("How did you get started?");
+        _questions.Add("How did you feel when it was complete?");
+        _questions.Add("What made this time different than other times when you were not as successful?");
+        _questions.Add("What is your favorite thing about this experience?");
+        _questions.Add("What could you learn from this experience that applies to other situations?");
+        _questions.Add("What did you learn about yourself through this experience?");
+        _questions.Add("How can you keep this experience in mind in the future?");
     }
 
     public void RunActivity()
@@ -23,11 +33,34 @@ public class ReflectingActivity : Activity
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
 
-        while (DateTime.Now < endTime)
+        /* To make my Reflecting Activity select each question once before repeating I made a list with the indexes
+        of the questions, (0 to _questions.Count-1 ), and each time I use one number I remove that number from the list
+        If the list is empty I fill it again with the indexes of questions again*/
+
+        List<int> randomNumbers = new List<int>();
+        int questionNumber = _questions.Count;
+        for (int i=0; i < questionNumber; i++)
         {
-            QuestionGenerator();
+            randomNumbers.Add(i);
+        }
+
+        while (DateTime.Now < endTime)
+        {   
+            int notUsedQuestions = ((randomNumbers.Count)-1);
+            Random rnd = new Random();
+            int rng = rnd.Next(notUsedQuestions);
+
+            QuestionGenerator(randomNumbers[rng]);
             PausingSpinner(15);
             Console.Write("\n");
+            randomNumbers.RemoveAt(rng);
+            if (randomNumbers.Count == 0)
+            {
+                for (int i=0; i < questionNumber; i++)
+                {
+                    randomNumbers.Add(i);
+                }
+            }
         }
         Console.WriteLine(" ");
     }
@@ -48,23 +81,10 @@ public class ReflectingActivity : Activity
         Console.Write(" --- \n");
     }
 
-    private void QuestionGenerator()
+    private void QuestionGenerator(int i)
     {
-        List<string> questions = new List<string>();
-        questions.Add("Why was this experience meaningful to you?");
-        questions.Add("Have you ever done anything like this before?");
-        questions.Add("How did you get started?");
-        questions.Add("How did you feel when it was complete?");
-        questions.Add("What made this time different than other times when you were not as successful?");
-        questions.Add("What is your favorite thing about this experience?");
-        questions.Add("What could you learn from this experience that applies to other situations?");
-        questions.Add("What did you learn about yourself through this experience?");
-        questions.Add("How can you keep this experience in mind in the future?");
-    
-        int questionNumber = questions.Count;
-        Random rnd = new Random();
         Console.Write(" > ");
-        Console.Write(questions[rnd.Next(questionNumber-1)]);
+        Console.Write(_questions[i]);
         Console.Write(" ");
     }
 }
