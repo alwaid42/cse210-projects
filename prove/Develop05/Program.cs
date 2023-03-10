@@ -6,11 +6,11 @@ class Program
     {
         bool loopBreak = true;
         List<Goal> myGoals = new List<Goal>();
+        int points = 0;
         while (loopBreak)
         {
-            
             //Check for score
-            Console.WriteLine("\nYou have 0 points\n");
+            Console.WriteLine($"\nYou have {points} points\n");
 
             Console.WriteLine("Menu Options:");
             Console.WriteLine(" 1. Create New Goals");
@@ -103,21 +103,36 @@ class Program
                         }
                     break;
 
-
-//Is currentrly overriding the file. Possible improvement. just add new lines.               
+           
                 case "3":
                     Console.Write("What is the filename? ");
                     string file = Console.ReadLine();
 
-                    using (StreamWriter outputFile = new StreamWriter(file))
+                    if(!File.Exists(file))
                     {
-                        // You can add text to the file with the WriteLine method
-                        // You can use the $ and include variables just like with Console.WriteLine
-                        foreach (Goal gl in myGoals)
+                        using (StreamWriter outputFile = new StreamWriter(file))
                         {
-                            outputFile.WriteLine(gl.WriteFile());
+                            outputFile.WriteLine(points);
+                            foreach (Goal gl in myGoals)
+                            {
+                                outputFile.WriteLine(gl.WriteFile());
+                            }
                         }
                     }
+
+                    else 
+                    {
+                        using (StreamWriter outputFile = File.AppendText(file))
+                        {
+                            outputFile.WriteLine(points);
+                            foreach (Goal gl in myGoals)
+                            {
+                                outputFile.WriteLine(gl.WriteFile());
+                            }
+                        }
+                    }
+
+
                     Console.WriteLine("Goals saved in the file");
                     break;
                 
@@ -129,11 +144,51 @@ class Program
                     foreach (string line in lines)
                     {
                         char[] delimiterChars = {'|'};
+                        string[] parts = line.Split(delimiterChars);
                         
+                        string f0 = "|Simple|Eternal|Checklist|";
+                        string[] f1 = f0.Split(delimiterChars); 
+                        
+                        //Console.WriteLine(String.Equals(f1[1], parts[1]));
+                        if(String.Equals("Simple", parts[0]))
+                        {
+                            int newPoints = int.Parse(parts[3]);
+                            bool completedS = bool.Parse(parts[4]);
+                            Simple newGoalS = new Simple(parts[1], parts[2], newPoints, completedS);
+                            myGoals.Add(newGoalS);
+                        }
+                        else if(String.Equals("Eternal", parts[0]))
+                        {
+                            int newPoints = int.Parse(parts[3]);
+                            Eternal newGoalE = new Eternal(parts[1], parts[2], newPoints);
+                            myGoals.Add(newGoalE);
+                        }
+                        else if(String.Equals("Checklist", parts[0]))
+                        {
+                            int newPoints = int.Parse(parts[3]);
+                            int times = int.Parse(parts[4]);
+                            int bonus = int.Parse(parts[5]);
+                            Checklist newGoalC = new Checklist(parts[1], parts[2], newPoints, times, bonus);
+                            myGoals.Add(newGoalC);
+                        }
+                        else
+                        {
+                            points = int.Parse(parts[0]);
+                        }
                     }
                     break;
 
                 case "5":
+                    int count2 = 1;
+                    Console.WriteLine("The goals are:");
+                    foreach (Goal gl in myGoals)
+                    {
+                        Console.Write($"{count2}. ");
+                        gl.ReturnGoalName();
+                        count2++;
+                    }
+                    Console.Write("Which goal did you accomplish? ");
+                    Console.ReadLine();
                     break;
 
                 case "6":

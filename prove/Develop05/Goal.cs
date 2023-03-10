@@ -1,8 +1,8 @@
 public abstract class Goal
 {
-    private string _goalName;
-    private string _goalDescription;
-    private int _points;
+    protected string _goalName;
+    protected string _goalDescription;
+    protected int _points;
 
     public Goal(string goalName, string goalDescription, int points)
     {
@@ -12,15 +12,23 @@ public abstract class Goal
     }
 
     public abstract void RecordEvent();
-    public abstract void IsComplete();
+    public abstract bool IsComplete();
     public abstract void AddPoints();
     public void ReturnGoal()
     {
-        Console.WriteLine($"[ ] {_goalName} ({_goalDescription})");
+        string completed = " ";
+        if(IsComplete())
+        {
+            completed = "x";
+        }
+
+        Console.WriteLine($"[{completed}] {_goalName} ({_goalDescription})");
     }
 
-    public string WriteFile()
+    public void ReturnGoalName()
     {
-        return "asdfasdf";
+        Console.WriteLine($"{_goalName}");
     }
+
+    public abstract string WriteFile();
 }

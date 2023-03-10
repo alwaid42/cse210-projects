@@ -9,12 +9,17 @@ public class Eternal : Goal
     {
 
     }
-    public override void IsComplete()
+    public override bool IsComplete()
     {
-        
+        return false;
     }
     public override void AddPoints()
     {
         
+    }
+
+    public override string WriteFile()
+    {
+        return $"Eternal|{_goalName}|{_goalDescription}|{_points}";
     }
 }
