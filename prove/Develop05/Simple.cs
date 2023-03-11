@@ -14,6 +14,7 @@ public class Simple : Goal
     public override int RecordEvent()
     {
         _completed = true;
+        Console.WriteLine($"Congratulations! You have earned {_points} points!");
         return _points;
     }
     public override bool IsComplete()
@@ -24,5 +25,16 @@ public class Simple : Goal
     public override string WriteFile()
     {
         return $"Simple|{_goalName}|{_goalDescription}|{_points}|{_completed}";
+    }
+
+    public override void ReturnGoal()
+    {
+        string completed = " ";
+        if(IsComplete())
+        {
+            completed = "x";
+        }
+
+        Console.WriteLine($"[{completed}] {_goalName} ({_goalDescription})");
     }
 }

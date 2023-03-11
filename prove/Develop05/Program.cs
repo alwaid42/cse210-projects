@@ -31,6 +31,7 @@ class Program
                         Console.WriteLine(" 1. Simple Goal");
                         Console.WriteLine(" 2. Eternal Goal");
                         Console.WriteLine(" 3. Checklist Goal");
+                        Console.WriteLine(" 4. Negative Goal (You lose points when you do it)");
                         Console.Write("Which type of goal would you like to create? ");
                         string goalType = Console.ReadLine();
 
@@ -85,6 +86,21 @@ class Program
 
                                 break;
 
+                            case "4":
+                                Console.Write("What is the name of your goal? ");
+                                string n4= Console.ReadLine();
+                                Console.Write("What is a short description of it? ");
+                                string d4 = Console.ReadLine();
+                                Console.Write("What is the amount of points associated with this goal? ");
+                                int p4 = int.Parse(Console.ReadLine());
+
+                                Negative newGoal4 = new Negative(n4, d4, p4);
+
+                                myGoals.Add(newGoal4);
+                                lpbk = false;
+
+                                break;
+
                             default:
                                 Console.WriteLine("Please enter a valid choice.");
                                 break;
@@ -108,6 +124,17 @@ class Program
                     Console.Write("What is the filename? ");
                     string file = Console.ReadLine();
 
+                    using (StreamWriter outputFile = new StreamWriter(file))
+                    {
+                        outputFile.WriteLine(points);
+                        foreach (Goal gl in myGoals)
+                        {
+                            outputFile.WriteLine(gl.WriteFile());
+                        }
+                    }
+
+                    //This code I used so that my document wasnt overwritten. But I decided that I want my file to be overwritten.
+                    /*
                     if(!File.Exists(file))
                     {
                         using (StreamWriter outputFile = new StreamWriter(file))
@@ -131,6 +158,7 @@ class Program
                             }
                         }
                     }
+                    */
 
 
                     Console.WriteLine("Goals saved in the file");
@@ -146,10 +174,9 @@ class Program
                         char[] delimiterChars = {'|'};
                         string[] parts = line.Split(delimiterChars);
                         
-                        string f0 = "|Simple|Eternal|Checklist|";
+                        string f0 = "Simple|Eternal|Checklist|Negative";
                         string[] f1 = f0.Split(delimiterChars); 
                         
-                        //Console.WriteLine(String.Equals(f1[1], parts[1]));
                         if(String.Equals("Simple", parts[0]))
                         {
                             int newPoints = int.Parse(parts[3]);
@@ -171,6 +198,12 @@ class Program
                             Checklist newGoalC = new Checklist(parts[1], parts[2], newPoints, times, bonus);
                             myGoals.Add(newGoalC);
                         }
+                        else if(String.Equals("Negative", parts[0]))
+                        {
+                            int newPoints = int.Parse(parts[3]);
+                            Negative newGoalN = new Negative(parts[1], parts[2], newPoints);
+                            myGoals.Add(newGoalN);
+                        }
                         else
                         {
                             points = int.Parse(parts[0]);
@@ -190,6 +223,7 @@ class Program
                     Console.Write("Which goal did you accomplish? ");
                     int input = int.Parse(Console.ReadLine());
                     points += myGoals[input-1].RecordEvent();
+                    Console.WriteLine($"You now have {points} points");
                     break;
 
                 case "6":

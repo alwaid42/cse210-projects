@@ -19,10 +19,12 @@ public class Checklist : Goal
         _accomplished++;
         if(_accomplished == _times)
         {
+            Console.WriteLine($"Congratulations! You have earned {_points + _bonus} points!");
             return _points + _bonus;
         }
         else
         {
+            Console.WriteLine($"Congratulations! You have earned {_points} points!");
             return _points;
         }
     }
@@ -39,5 +41,16 @@ public class Checklist : Goal
     public override string WriteFile()
     {
         return $"Checklist|{_goalName}|{_goalDescription}|{_points}|{_times}|{_bonus}|{_accomplished}";
+    }
+
+    public override void ReturnGoal()
+    {
+        string completed = " ";
+        if(IsComplete())
+        {
+            completed = "x";
+        }
+
+        Console.WriteLine($"[{completed}] {_goalName} ({_goalDescription}) -- Currently completed: {_accomplished}/{_times}");
     }
 }

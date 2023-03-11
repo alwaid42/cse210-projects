@@ -13,16 +13,7 @@ public abstract class Goal
 
     public abstract int RecordEvent();
     public abstract bool IsComplete();
-    public void ReturnGoal()
-    {
-        string completed = " ";
-        if(IsComplete())
-        {
-            completed = "x";
-        }
-
-        Console.WriteLine($"[{completed}] {_goalName} ({_goalDescription})");
-    }
+    public abstract void ReturnGoal();
 
     public void ReturnGoalName()
     {
