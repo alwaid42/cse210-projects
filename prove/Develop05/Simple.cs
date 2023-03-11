@@ -11,17 +11,14 @@ public class Simple : Goal
         _completed = completed;   
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        _completed = true;
+        return _points;
     }
     public override bool IsComplete()
     {
         return _completed;
-    }
-    public override void AddPoints()
-    {
-        
     }
 
     public override string WriteFile()

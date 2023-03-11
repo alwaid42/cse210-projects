@@ -188,7 +188,8 @@ class Program
                         count2++;
                     }
                     Console.Write("Which goal did you accomplish? ");
-                    Console.ReadLine();
+                    int input = int.Parse(Console.ReadLine());
+                    points += myGoals[input-1].RecordEvent();
                     break;
 
                 case "6":

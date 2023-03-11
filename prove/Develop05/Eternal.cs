@@ -5,17 +5,13 @@ public class Eternal : Goal
         
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        return _points;
     }
     public override bool IsComplete()
     {
         return false;
-    }
-    public override void AddPoints()
-    {
-        
     }
 
     public override string WriteFile()

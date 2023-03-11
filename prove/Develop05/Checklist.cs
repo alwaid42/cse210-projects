@@ -14,22 +14,26 @@ public class Checklist : Goal
         _accomplished = 0;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        _accomplished++;
+        if(_accomplished == _times)
+        {
+            return _points + _bonus;
+        }
+        else
+        {
+            return _points;
+        }
     }
     public override bool IsComplete()
     {
-        if(_accomplished == _times)
+        if(_accomplished >= _times)
         {
             return true;
         }
         else
             return false;
-    }
-    public override void AddPoints()
-    {
-        
     }
 
     public override string WriteFile()

@@ -11,9 +11,8 @@ public abstract class Goal
         _points = points;
     }
 
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
     public abstract bool IsComplete();
-    public abstract void AddPoints();
     public void ReturnGoal()
     {
         string completed = " ";
