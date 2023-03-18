@@ -195,7 +195,8 @@ class Program
                             int newPoints = int.Parse(parts[3]);
                             int times = int.Parse(parts[4]);
                             int bonus = int.Parse(parts[5]);
-                            Checklist newGoalC = new Checklist(parts[1], parts[2], newPoints, times, bonus);
+                            int accomplished = int.Parse(parts[6]);
+                            Checklist newGoalC = new Checklist(parts[1], parts[2], newPoints, times, bonus, accomplished);
                             myGoals.Add(newGoalC);
                         }
                         else if(String.Equals("Negative", parts[0]))
@@ -213,17 +214,29 @@ class Program
 
                 case "5":
                     int count2 = 1;
+                    int count3 = 0;
                     Console.WriteLine("The goals are:");
+                    
+                    Dictionary<int, int> myDict = new Dictionary<int, int> ();
+
                     foreach (Goal gl in myGoals)
                     {
-                        Console.Write($"{count2}. ");
-                        gl.ReturnGoalName();
-                        count2++;
+                        if (gl.IsComplete() == false)
+                        {
+                            Console.Write($"{count2}. ");
+                            gl.ReturnGoalName();
+                            myDict.Add(count2, count3);
+                            count2++;
+                        }
+                        count3++;
                     }
+
                     Console.Write("Which goal did you accomplish? ");
                     int input = int.Parse(Console.ReadLine());
-                    points += myGoals[input-1].RecordEvent();
+                    points += myGoals[myDict[input]].RecordEvent();
                     Console.WriteLine($"You now have {points} points");
+                    
+                    
                     break;
 
                 case "6":

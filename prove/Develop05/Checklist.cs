@@ -14,6 +14,13 @@ public class Checklist : Goal
         _accomplished = 0;
     }
 
+    public Checklist (string name, string description, int points, int times, int bonus, int accomplished) : base (name, description, points)
+    {
+        _times = times;
+        _bonus = bonus;
+        _accomplished = accomplished;
+    }
+
     public override int RecordEvent()
     {
         _accomplished++;
