@@ -1,15 +1,15 @@
 public class ItemQuantity
 {
     private string _itemId;
-    private double _quantity;
+    private float _quantity;
 
-    public void SetQuantity(string id, double quantity)
+    public void SetQuantity(string id, float quantity)
     {
         _itemId = id;
         _quantity = quantity;
     }
 
-    public double GetQuantity()
+    public float GetQuantity()
     {
         return _quantity;
     }
