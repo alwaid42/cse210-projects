@@ -66,6 +66,6 @@ public class Weight : Item
 
     public override string WriteFile()
     {
-        return $"Unit||{_name}|{_description}|{_weight}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Weight||{_name}|{_description}|{_weight}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }

@@ -66,6 +66,6 @@ public class Length : Item
 
     public override string WriteFile()
     {
-        return $"Unit||{_name}|{_description}|{_length}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Length||{_name}|{_description}|{_length}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }

@@ -160,14 +160,26 @@ public class Stock
             count2++;
         }
 
-        string input = " ";
-        do
+
+        if (count1 > 1)
+        {    
+            string input = " ";
+            do
+            {
+                Console.Write("Which item you want to update? To finish updating press enter");
+                input = Console.ReadLine();
+                if (input != "")
+                {
+                    int index = int.Parse(Console.ReadLine());
+                    UpdateItem(myDict[index]);
+                }
+                
+            } while (input != "");
+        }
+        else
         {
-            Console.Write("Which item you want to update? To finish updating press enter");
-            input = Console.ReadLine();
-            int index = int.Parse(Console.ReadLine());
-            UpdateItem(myDict[index]);
-        } while (input != "");
+            Console.WriteLine("There are no items in Low Quantity.");
+        }
 
     }
 }

@@ -66,6 +66,6 @@ public class Volume : Item
 
     public override string WriteFile()
     {
-        return $"Unit||{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Volume||{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }
