@@ -1,0 +1,4 @@
+Volume|0001|Litro|medida de volume|8,9|1|5,25|7,11
+Length|0002|Metro|medida de comprimento|2,5|0,5|2,12|3,5
+Weight|0003|Kilo|medida de peso|4,7|2,0|25,21|32,14
+Unit|0004|Caixa|medida de unidade|100|10|100,50|205,33
