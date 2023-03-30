@@ -5,7 +5,7 @@ public class Unit : Item
     private float _pricePaid;
     private float _sellPrice;
 
-    public Unit(string id, string name, string description, float unit, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
+    public Unit(string name, string description, float unit, float minimumQuantity, float pricePaid, float sellPrice) : base (name, description)
     {
         _unit = unit;
         _minimumQuantity = minimumQuantity;
@@ -15,7 +15,7 @@ public class Unit : Item
 
     public override void ReturnItem()
     {
-        Console.WriteLine($"ID: {_id} | Item: {_name} | Descr: {_description} | Quant: {_unit} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
+        Console.WriteLine($"ID: | Item: {_name} | Descr: {_description} | Quant: {_unit} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
     }
 
     public override void SetItem()
@@ -34,9 +34,9 @@ public class Unit : Item
     {
         
     }
-    public override void LowQuantity()
+    public override bool LowQuantity()
     {
-        
+        return false;
     }
 
     public override void UpdateQuantity()
@@ -66,7 +66,7 @@ public class Unit : Item
 
     public override string WriteFile()
     {
-        return $"Unit|{_id}|{_name}|{_description}|{_unit}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Unit||{_name}|{_description}|{_unit}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 
 }

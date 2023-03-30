@@ -5,7 +5,7 @@ public class Volume : Item
     private float _pricePaid;
     private float _sellPrice;
 
-    public Volume(string id, string name, string description, float volume, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
+    public Volume(string name, string description, float volume, float minimumQuantity, float pricePaid, float sellPrice) : base (name, description)
     {
         _volume = volume;
         _minimumQuantity = minimumQuantity;
@@ -15,7 +15,7 @@ public class Volume : Item
 
     public override void ReturnItem()
     {
-        Console.WriteLine($"ID: {_id} | Item: {_name} | Descr: {_description} | Quant: {_volume} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
+        Console.WriteLine($"ID: | Item: {_name} | Descr: {_description} | Quant: {_volume} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
     }
 
     public override void SetItem()
@@ -34,9 +34,9 @@ public class Volume : Item
     {
         
     }
-    public override void LowQuantity()
+    public override bool LowQuantity()
     {
-        
+        return false;
     }
 
     public override void UpdateQuantity()
@@ -66,6 +66,6 @@ public class Volume : Item
 
     public override string WriteFile()
     {
-        return $"Unit|{_id}|{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Unit||{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }

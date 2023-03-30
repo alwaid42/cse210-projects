@@ -98,7 +98,7 @@ public class Stock
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Volume newItemV = new Volume(parts[1], parts[2], parts[3], quantity, minimun, paid, sell);
+                Volume newItemV = new Volume(parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemV);
             }
@@ -109,7 +109,7 @@ public class Stock
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Length newItemL = new Length(parts[1], parts[2], parts[3], quantity, minimun, paid, sell);
+                Length newItemL = new Length( parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemL);
             }
@@ -120,7 +120,7 @@ public class Stock
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Weight newItemW = new Weight(parts[1], parts[2], parts[3], quantity, minimun, paid, sell);
+                Weight newItemW = new Weight(parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemW);
             }
@@ -131,7 +131,7 @@ public class Stock
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Unit newItemU = new Unit(parts[1], parts[2], parts[3], quantity, minimun, paid, sell);
+                Unit newItemU = new Unit( parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemU);
             }
@@ -140,5 +140,34 @@ public class Stock
                 //not defined yet
             }
         }
+    }
+
+    public void BuyList()
+    {
+        int count1 = 1;
+        int count2 = 0;
+        Dictionary<int, int> myDict = new Dictionary<int, int> ();
+
+        foreach (Item it in _inventory)
+        {
+            if (it.LowQuantity())
+            {
+                Console.Write($"{count1}. ");
+                it.ReturnItem();
+                myDict.Add(count1, count2);
+                count1++;
+            }
+            count2++;
+        }
+
+        string input = " ";
+        do
+        {
+            Console.Write("Which item you want to update? To finish updating press enter");
+            input = Console.ReadLine();
+            int index = int.Parse(Console.ReadLine());
+            UpdateItem(myDict[index]);
+        } while (input != "");
+
     }
 }
