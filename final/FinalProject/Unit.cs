@@ -64,4 +64,9 @@ public class Unit : Item
         _sellPrice = newValue;
     }
 
+    public override string WriteFile()
+    {
+        return $"Unit|{_id}|{_name}|{_description}|{_unit}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+    }
+
 }

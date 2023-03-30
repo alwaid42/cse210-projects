@@ -45,10 +45,121 @@ class Program
                                 Console.Write("Insert the ID of the item you want to update: ");
                                 int updateItem = int.Parse(Console.ReadLine());
                                 myStock.UpdateItem(updateItem);
+                                myStock.SaveFile();
                                 break;
 
                             case "2":
-                                
+                                Console.WriteLine("Which Type of item you want to add? ");
+                                Console.WriteLine("1. Volume Item");
+                                Console.WriteLine("2. Length Item");
+                                Console.WriteLine("3. Weight Item");
+                                Console.WriteLine("4. Unit Item");
+                                string addItem = Console.ReadLine();
+
+                                switch (addItem)
+                                {
+                                    case "1":
+                                        Console.WriteLine("1. Volume Item");
+                                        Console.WriteLine("");
+                                        //still working on how to fix id attribugte. Probably just going to delete it
+                                        string newIDV = "XXXXX";
+                                        Console.Write("Name: ");
+                                        string newNameV = Console.ReadLine();
+                                        Console.Write("Description: ");
+                                        string newDescriptionV = Console.ReadLine();
+                                        Console.Write("Volume in Stock: ");
+                                        float newVolume = float.Parse(Console.ReadLine());
+                                        Console.Write("Minimum volume:");
+                                        float newMinimumV = float.Parse(Console.ReadLine());
+                                        Console.Write("Price Paid: ");
+                                        float newPaidV = float.Parse(Console.ReadLine());
+                                        Console.Write("Sell Price: ");
+                                        float newSellV = float.Parse(Console.ReadLine());
+
+                                        Volume newItemV = new Volume(newIDV, newNameV, newDescriptionV, newVolume, newMinimumV, newPaidV, newSellV);
+
+                                        myStock.AddItem(newItemV);
+
+                                        break;
+                                        
+                                    case "2":
+                                        Console.WriteLine("2. Length Item");
+                                        Console.WriteLine("");
+                                        //still working on how to fix id attribugte. Probably just going to delete it
+                                        string newIDL = "XXXXX";
+                                        Console.Write("Name: ");
+                                        string newNameL = Console.ReadLine();
+                                        Console.Write("Description: ");
+                                        string newDescriptionL = Console.ReadLine();
+                                        Console.Write("Length in Stock: ");
+                                        float newLength = float.Parse(Console.ReadLine());
+                                        Console.Write("Minimum Length:");
+                                        float newMinimumL = float.Parse(Console.ReadLine());
+                                        Console.Write("Price Paid: ");
+                                        float newPaidL = float.Parse(Console.ReadLine());
+                                        Console.Write("Sell Price: ");
+                                        float newSellL = float.Parse(Console.ReadLine());
+
+                                        Length newItemL = new Length(newIDL, newNameL, newDescriptionL, newLength, newMinimumL, newPaidL, newSellL);
+
+                                        myStock.AddItem(newItemL);
+
+                                        break;
+
+                                    case "3":
+                                        Console.WriteLine("3. Weight Item");
+                                        Console.WriteLine("");
+                                        //still working on how to fix id attribugte. Probably just going to delete it
+                                        string newIDW = "XXXXX";
+                                        Console.Write("Name: ");
+                                        string newNameW = Console.ReadLine();
+                                        Console.Write("Description: ");
+                                        string newDescriptionW = Console.ReadLine();
+                                        Console.Write("Weight in Stock: ");
+                                        float newWeight = float.Parse(Console.ReadLine());
+                                        Console.Write("Minimum Weight:");
+                                        float newMinimumW = float.Parse(Console.ReadLine());
+                                        Console.Write("Price Paid: ");
+                                        float newPaidW = float.Parse(Console.ReadLine());
+                                        Console.Write("Sell Price: ");
+                                        float newSellW = float.Parse(Console.ReadLine());
+
+                                        Weight newItemW = new Weight(newIDW, newNameW, newDescriptionW, newWeight, newMinimumW, newPaidW, newSellW);
+
+                                        myStock.AddItem(newItemW);
+
+                                        break;
+
+                                    case "4":
+                                        Console.WriteLine("4. Unit Item");
+                                        Console.WriteLine("");
+                                        //still working on how to fix id attribugte. Probably just going to delete it
+                                        string newIDU = "XXXXX";
+                                        Console.Write("Name: ");
+                                        string newNameU = Console.ReadLine();
+                                        Console.Write("Description: ");
+                                        string newDescriptionU = Console.ReadLine();
+                                        Console.Write("Units in Stock: ");
+                                        float newUnit = float.Parse(Console.ReadLine());
+                                        Console.Write("Minimum Units:");
+                                        float newMinimumU = float.Parse(Console.ReadLine());
+                                        Console.Write("Price Paid: ");
+                                        float newPaidU = float.Parse(Console.ReadLine());
+                                        Console.Write("Sell Price: ");
+                                        float newSellU = float.Parse(Console.ReadLine());
+
+                                        Unit newItemU = new Unit(newIDU, newNameU, newDescriptionU, newUnit, newMinimumU, newPaidU, newSellU);
+
+                                        myStock.AddItem(newItemU);
+
+                                        break;
+
+                                    default:
+                                        Console.WriteLine("Invalid Option");
+                                        break;
+                                }
+
+                                myStock.SaveFile();
                                 break;
 
                             case "3":

@@ -63,4 +63,9 @@ public class Volume : Item
         float newValue = float.Parse(Console.ReadLine());
         _sellPrice = newValue;
     }
+
+    public override string WriteFile()
+    {
+        return $"Unit|{_id}|{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+    }
 }

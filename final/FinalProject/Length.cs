@@ -64,4 +64,8 @@ public class Length : Item
         _sellPrice = newValue;
     }
 
+    public override string WriteFile()
+    {
+        return $"Unit|{_id}|{_name}|{_description}|{_length}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+    }
 }

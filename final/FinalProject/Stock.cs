@@ -57,7 +57,23 @@ public class Stock
         }
         Console.WriteLine("");
         _inventory[index-1].ReturnItem();
+    }
 
+    public void AddItem(Item newItem)
+    {
+        _inventory.Add(newItem);
+    }
+
+    public void SaveFile()
+    {
+        string file = "stock.txt";
+        using (StreamWriter outputFile = new StreamWriter(file))
+        {
+            foreach (Item it in _inventory)
+            {
+                outputFile.WriteLine(it.WriteFile());
+            }
+        }
     }
 
     public void ReadFile()

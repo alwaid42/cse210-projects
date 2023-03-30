@@ -47,4 +47,6 @@ public abstract class Item
     public abstract void UpdateMinimum();
     public abstract void UpdatePaid();
     public abstract void SellName();
+
+    public abstract string WriteFile();
 }
