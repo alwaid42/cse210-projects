@@ -8,6 +8,7 @@ class Program
         myStock.ReadFile();
 
         UserBase myUsers = new UserBase();
+        myUsers.ReadUsers();
 
         Console.WriteLine("Welcome to the Inventory Manager Program!");
 
