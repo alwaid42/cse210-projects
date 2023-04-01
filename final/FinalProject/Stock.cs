@@ -93,45 +93,49 @@ public class Stock
 
             if(String.Equals("Volume", parts[0]))
             {
+                int id = int.Parse(parts[1]);
                 float quantity = float.Parse(parts[4]);
                 float minimun = float.Parse(parts[5]);
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Volume newItemV = new Volume(parts[2], parts[3], quantity, minimun, paid, sell);
+                Volume newItemV = new Volume(id, parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemV);
             }
             else if(String.Equals("Length", parts[0]))
             {
+                int id = int.Parse(parts[1]);
                 float quantity = float.Parse(parts[4]);
                 float minimun = float.Parse(parts[5]);
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Length newItemL = new Length( parts[2], parts[3], quantity, minimun, paid, sell);
+                Length newItemL = new Length(id, parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemL);
             }
             else if(String.Equals("Weight", parts[0]))
             {
+                int id = int.Parse(parts[1]);
                 float quantity = float.Parse(parts[4]);
                 float minimun = float.Parse(parts[5]);
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Weight newItemW = new Weight(parts[2], parts[3], quantity, minimun, paid, sell);
+                Weight newItemW = new Weight(id, parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemW);
             }
             else if(String.Equals("Unit", parts[0]))
             {
+                int id = int.Parse(parts[1]);
                 int quantity = int.Parse(parts[4]);
                 int minimun = int.Parse(parts[5]);
                 float paid = float.Parse(parts[6]);
                 float sell = float.Parse(parts[7]);
 
-                Unit newItemU = new Unit( parts[2], parts[3], quantity, minimun, paid, sell);
+                Unit newItemU = new Unit(id, parts[2], parts[3], quantity, minimun, paid, sell);
 
                 _inventory.Add(newItemU);
             }
@@ -145,7 +149,7 @@ public class Stock
     public void BuyList()
     {
         int count1 = 1;
-        int count2 = 0;
+        int count2 = 1;
         Dictionary<int, int> myDict = new Dictionary<int, int> ();
 
         foreach (Item it in _inventory)
@@ -166,12 +170,16 @@ public class Stock
             string input = " ";
             do
             {
-                Console.Write("Which item you want to update? To finish updating press enter");
+
+                Console.WriteLine("Which item in the list you want to update? To finish updating press enter");
                 input = Console.ReadLine();
                 if (input != "")
                 {
-                    int index = int.Parse(Console.ReadLine());
-                    UpdateItem(myDict[index]);
+                    int index = int.Parse(input);
+                    Console.WriteLine($"{index}");
+                    int teste = myDict[index];
+                    Console.WriteLine($"{teste}");
+                    UpdateItem(teste);
                 }
                 
             } while (input != "");

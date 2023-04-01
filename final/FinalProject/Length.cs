@@ -5,7 +5,7 @@ public class Length : Item
     private float _pricePaid;
     private float _sellPrice;
 
-    public Length(string name, string description, float length, float minimumQuantity, float pricePaid, float sellPrice) : base (name, description)
+    public Length(int id, string name, string description, float length, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
     {
         _length = length;
         _minimumQuantity = minimumQuantity;
@@ -36,8 +36,16 @@ public class Length : Item
     }
     public override bool LowQuantity()
     {
-        return false;
+        if (_minimumQuantity > _length)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+
 
     public override void UpdateQuantity()
     {

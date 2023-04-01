@@ -10,22 +10,41 @@ public class UserBase
         int count = 0;
         foreach(User u in _base)
         {
-            Console.Write($"{count+1}. ");
-            u.GetUserName();
+            Console.WriteLine($"ID: {count+1}. {u.GetUserName()}");
             count++;
         }
     }
 
     public void CreateUser()
     {
-
-        
+        Console.WriteLine("What is the name of the new user?");
+        string newName = Console.ReadLine();
+        User newUser = new User(newName);
+        _base.Add(newUser);
+        Console.WriteLine("New user Created.");
         SaveUsers();
     }
 
     public void DeleteUser()
-    {
-        SaveUsers();
+    {   
+        Console.WriteLine("What is the ID of the user you want to delete? ");
+        int deleteId = int.Parse(Console.ReadLine());
+        Console.WriteLine($"Are you sure you want to delete {_base[deleteId-1].GetUserName()}? yes or no");
+        string decision = Console.ReadLine();
+        if (decision == "yes")
+        {
+            _base.RemoveAt(deleteId-1);
+            Console.WriteLine("User deleted");
+            SaveUsers();
+        }
+        else if (decision == "no")
+        {
+            Console.WriteLine("Operation cancelled by the user.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid option. Operation Cancelled.");
+        }
     }
 
     public void ReadUsers()

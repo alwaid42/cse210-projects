@@ -5,7 +5,7 @@ public class Weight : Item
     private float _pricePaid;
     private float _sellPrice;
 
-    public Weight(string name, string description, float weight, float minimumQuantity, float pricePaid, float sellPrice) : base (name, description)
+    public Weight(int id, string name, string description, float weight, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
     {
         _weight = weight;
         _minimumQuantity = minimumQuantity;
@@ -36,8 +36,16 @@ public class Weight : Item
     }
     public override bool LowQuantity()
     {
-        return false;
+        if (_minimumQuantity > _weight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+
 
     public override void UpdateQuantity()
     {

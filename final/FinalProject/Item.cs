@@ -1,10 +1,12 @@
 public abstract class Item
 {
+    protected int _id;
     protected string _name;
     protected string _description;
 
-    public Item(string name, string description)
+    public Item(int id, string name, string description)
     {
+        _id = id;
         _name = name;
         _description = description;
     }

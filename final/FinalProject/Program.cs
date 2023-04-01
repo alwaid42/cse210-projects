@@ -10,6 +10,9 @@ class Program
         UserBase myUsers = new UserBase();
         myUsers.ReadUsers();
 
+        Identification myId = new Identification();
+        myId.ReadId();
+
         Console.WriteLine("Welcome to the Inventory Manager Program!");
 
         bool loopBreak=true;
@@ -22,6 +25,7 @@ class Program
             Console.WriteLine("4. Sales Report");
             Console.WriteLine("5. Manage Users");
             Console.WriteLine("6. Quit");
+            Console.Write("Choose one option: ");
             string input = Console.ReadLine();
             switch(input)
             {
@@ -72,8 +76,7 @@ class Program
                                     case "1":
                                         Console.WriteLine("1. Volume Item");
                                         Console.WriteLine("");
-                                        //still working on how to fix id attribute. Probably just going to delete it
-                                        //string newIDV = "XXXXX";
+                                        int newIDV = myId.NewID();
                                         Console.Write("Name: ");
                                         string newNameV = Console.ReadLine();
                                         Console.Write("Description: ");
@@ -87,7 +90,7 @@ class Program
                                         Console.Write("Sell Price: ");
                                         float newSellV = float.Parse(Console.ReadLine());
 
-                                        Volume newItemV = new Volume(newNameV, newDescriptionV, newVolume, newMinimumV, newPaidV, newSellV);
+                                        Volume newItemV = new Volume(newIDV, newNameV, newDescriptionV, newVolume, newMinimumV, newPaidV, newSellV);
 
                                         myStock.AddItem(newItemV);
 
@@ -96,8 +99,7 @@ class Program
                                     case "2":
                                         Console.WriteLine("2. Length Item");
                                         Console.WriteLine("");
-                                        //still working on how to fix id attribute. Probably just going to delete it
-                                        //string newIDL = "XXXXX";
+                                        int newIDL = myId.NewID();
                                         Console.Write("Name: ");
                                         string newNameL = Console.ReadLine();
                                         Console.Write("Description: ");
@@ -111,7 +113,7 @@ class Program
                                         Console.Write("Sell Price: ");
                                         float newSellL = float.Parse(Console.ReadLine());
 
-                                        Length newItemL = new Length(newNameL, newDescriptionL, newLength, newMinimumL, newPaidL, newSellL);
+                                        Length newItemL = new Length(newIDL, newNameL, newDescriptionL, newLength, newMinimumL, newPaidL, newSellL);
 
                                         myStock.AddItem(newItemL);
 
@@ -120,8 +122,7 @@ class Program
                                     case "3":
                                         Console.WriteLine("3. Weight Item");
                                         Console.WriteLine("");
-                                        //still working on how to fix id attribute. Probably just going to delete it
-                                        //string newIDW = "XXXXX";
+                                        int newIDW = myId.NewID();
                                         Console.Write("Name: ");
                                         string newNameW = Console.ReadLine();
                                         Console.Write("Description: ");
@@ -135,7 +136,7 @@ class Program
                                         Console.Write("Sell Price: ");
                                         float newSellW = float.Parse(Console.ReadLine());
 
-                                        Weight newItemW = new Weight(newNameW, newDescriptionW, newWeight, newMinimumW, newPaidW, newSellW);
+                                        Weight newItemW = new Weight(newIDW, newNameW, newDescriptionW, newWeight, newMinimumW, newPaidW, newSellW);
 
                                         myStock.AddItem(newItemW);
 
@@ -144,8 +145,7 @@ class Program
                                     case "4":
                                         Console.WriteLine("4. Unit Item");
                                         Console.WriteLine("");
-                                        //still working on how to fix id attribute. Probably just going to delete it
-                                        //string newIDU = "XXXXX";
+                                        int newIDU = myId.NewID();
                                         Console.Write("Name: ");
                                         string newNameU = Console.ReadLine();
                                         Console.Write("Description: ");
@@ -159,7 +159,7 @@ class Program
                                         Console.Write("Sell Price: ");
                                         float newSellU = float.Parse(Console.ReadLine());
 
-                                        Unit newItemU = new Unit(newNameU, newDescriptionU, newUnit, newMinimumU, newPaidU, newSellU);
+                                        Unit newItemU = new Unit(newIDU, newNameU, newDescriptionU, newUnit, newMinimumU, newPaidU, newSellU);
 
                                         myStock.AddItem(newItemU);
 

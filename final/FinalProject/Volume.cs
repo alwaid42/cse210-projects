@@ -5,7 +5,7 @@ public class Volume : Item
     private float _pricePaid;
     private float _sellPrice;
 
-    public Volume(string name, string description, float volume, float minimumQuantity, float pricePaid, float sellPrice) : base (name, description)
+    public Volume(int id, string name, string description, float volume, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
     {
         _volume = volume;
         _minimumQuantity = minimumQuantity;
@@ -36,7 +36,14 @@ public class Volume : Item
     }
     public override bool LowQuantity()
     {
-        return false;
+        if (_minimumQuantity > _volume)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override void UpdateQuantity()

@@ -5,7 +5,7 @@ public class Unit : Item
     private float _pricePaid;
     private float _sellPrice;
 
-    public Unit(string name, string description, float unit, float minimumQuantity, float pricePaid, float sellPrice) : base (name, description)
+    public Unit(int id, string name, string description, float unit, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
     {
         _unit = unit;
         _minimumQuantity = minimumQuantity;
@@ -36,8 +36,16 @@ public class Unit : Item
     }
     public override bool LowQuantity()
     {
-        return false;
+        if (_minimumQuantity > _unit)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+
 
     public override void UpdateQuantity()
     {
