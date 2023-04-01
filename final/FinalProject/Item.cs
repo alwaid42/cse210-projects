@@ -3,12 +3,17 @@ public abstract class Item
     protected int _id;
     protected string _name;
     protected string _description;
+    protected float _pricePaid;
+    protected float _sellPrice;
 
-    public Item(int id, string name, string description)
+
+    public Item(int id, string name, string description, float pricePaid, float sellPrice)
     {
         _id = id;
         _name = name;
         _description = description;
+        _pricePaid = pricePaid;
+        _sellPrice = sellPrice;
     }
 
     public string GetItemName()

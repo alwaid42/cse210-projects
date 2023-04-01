@@ -2,10 +2,8 @@ public class Weight : Item
 {
     private float _weight;
     private float _minimumQuantity;
-    private float _pricePaid;
-    private float _sellPrice;
 
-    public Weight(int id, string name, string description, float weight, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
+    public Weight(int id, string name, string description, float weight, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description, pricePaid, sellPrice)
     {
         _weight = weight;
         _minimumQuantity = minimumQuantity;

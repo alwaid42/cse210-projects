@@ -2,10 +2,8 @@ public class Volume : Item
 {
     private float _volume;
     private float _minimumQuantity;
-    private float _pricePaid;
-    private float _sellPrice;
 
-    public Volume(int id, string name, string description, float volume, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
+    public Volume(int id, string name, string description, float volume, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description, pricePaid, sellPrice)
     {
         _volume = volume;
         _minimumQuantity = minimumQuantity;

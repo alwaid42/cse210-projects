@@ -2,10 +2,8 @@ public class Length : Item
 {
     private float _length;
     private float _minimumQuantity;
-    private float _pricePaid;
-    private float _sellPrice;
 
-    public Length(int id, string name, string description, float length, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
+    public Length(int id, string name, string description, float length, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description, pricePaid, sellPrice)
     {
         _length = length;
         _minimumQuantity = minimumQuantity;

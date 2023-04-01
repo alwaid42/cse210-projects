@@ -2,15 +2,18 @@ public class Unit : Item
 {
     private float _unit;
     private float _minimumQuantity;
-    private float _pricePaid;
-    private float _sellPrice;
-
-    public Unit(int id, string name, string description, float unit, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description)
+    
+    public Unit(int id, string name, string description, float unit, float minimumQuantity, float pricePaid, float sellPrice) : base (id, name, description, pricePaid, sellPrice)
     {
         _unit = unit;
         _minimumQuantity = minimumQuantity;
         _pricePaid = pricePaid;
         _sellPrice = sellPrice;
+    }
+
+    public float ReturnSellPrice()
+    {
+        return _sellPrice;
     }
 
     public override void ReturnItem()

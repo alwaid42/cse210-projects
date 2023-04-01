@@ -13,6 +13,13 @@ class Program
         Identification myId = new Identification();
         myId.ReadId();
 
+        SalesRecord mySales = new SalesRecord();
+        mySales.LoadSales();
+
+        //
+        //UserIdentification myUserId = new UserIdentification();
+        //myUserId.ReadUserId();
+
         Console.WriteLine("Welcome to the Inventory Manager Program!");
 
         bool loopBreak=true;
@@ -191,6 +198,43 @@ class Program
                 case "2":
                     Console.Clear();
                     Console.WriteLine("MAKE SALES");
+                    Console.WriteLine("");
+                    myUsers.ListUsers();
+                    Console.WriteLine("Which user is making this sale?");
+                    int inputSalePerson = int.Parse(Console.ReadLine());
+                    Sale mySale = new Sale();
+                    mySale.StartSale(inputSalePerson);
+                    bool loopBreakSale = true;
+                    while(loopBreakSale)
+                    {
+                        Console.WriteLine("What do you want to do in this sale:");
+                        Console.WriteLine("1. Add Item");
+                        Console.WriteLine("2. Remove Item");
+                        Console.WriteLine("3. Finish Sale");
+                        Console.WriteLine("4. Cancel Sale");
+                        string inputSale = Console.ReadLine();
+                        switch (inputSale)
+                        {
+                            case "1":
+                                mySale.AddItem();
+                                break;
+                            case "2":
+                                mySale.RemoveItem();
+                                break;
+                            case "3":
+                                mySale.FinishSale();
+                                mySales.AddSale(mySale);
+                                loopBreakSale = false;
+                                break;
+                            case "4":
+                                mySale.CancelSale();
+                                loopBreakSale = false;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid option. Please enter a valid choice.");
+                                break;
+                        }
+                    }
                     break;
 
                 case "3":
