@@ -27,4 +27,11 @@ public class ItemQuantity
     {
         return _itemId;
     }
+
+    public void DisplayItemQuantity()
+    {
+        Console.WriteLine($"Item id: {_itemId} | Quantity: {_quantity} | Price: {_sellPrice}| Subtotal: {_subTotal}");
+    }
+
+    
 }

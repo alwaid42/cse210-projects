@@ -16,6 +16,10 @@ public class SalesRecord
     }
     public void SaleReport()
     {
-        
+        foreach (Sale sl in _salesRecord)
+        {
+            sl.DisplaySale();
+            Console.WriteLine("");
+        }
     }
 }

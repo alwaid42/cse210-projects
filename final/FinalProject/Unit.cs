@@ -29,14 +29,11 @@ public class Unit : Item
     {
         
     }
-    public override void SoldItem()
+    public override void SoldItem(float quantity)
     {
-        
+        _unit -= quantity;
     }
-    public override void BoughtItem()
-    {
-        
-    }
+
     public override bool LowQuantity()
     {
         if (_minimumQuantity > _unit)
@@ -80,4 +77,8 @@ public class Unit : Item
         return $"Unit|{_id}|{_name}|{_description}|{_unit}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 
+    public override bool AcceptsFloat()
+    {
+        return false;
+    }
 }

@@ -1,6 +1,6 @@
 Volume|1|Litro|medida de volume|8,9|1|5,25|10
 Length|2|Metro|medida de comprimento|2,5|0,5|2,12|3,5
-Weight|3|Kilo|medida de peso|4,7|2|25,21|32,14
+Weight|3|Kilo|medida de peso|3|2|25,21|32,14
 Unit|4|Caixa|medida de unidade|100|10|100,5|205,33
 Unit|5|Unidad|lakjdslfçkjaldçksjf|78|23|55|12
 Volume|6|Teste|kladjflakjdsfklajdf|4|5|10|15

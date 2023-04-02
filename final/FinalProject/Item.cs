@@ -21,14 +21,29 @@ public abstract class Item
         return _name;
     }
 
+    public float GetSellPrice()
+    {
+        return _sellPrice;
+    }
+
 
     public abstract void ReturnItem();
     public abstract void SetItem();
 
     public abstract void GetItem();
-    public abstract void SoldItem();
-    public abstract void BoughtItem();
+    public abstract void SoldItem(float quantity);
     public abstract bool LowQuantity();
+
+    public abstract void UpdateQuantity();
+    public abstract void UpdateMinimum();
+    public abstract void UpdatePaid();
+    public abstract void SellName();
+
+    public abstract string WriteFile();
+
+    public abstract bool AcceptsFloat();
+
+
 
     public void UpdateName()
     {
@@ -42,10 +57,5 @@ public abstract class Item
         string newValue = Console.ReadLine();
         _description = newValue;
     }
-    public abstract void UpdateQuantity();
-    public abstract void UpdateMinimum();
-    public abstract void UpdatePaid();
-    public abstract void SellName();
-
-    public abstract string WriteFile();
+    
 }

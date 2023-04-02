@@ -24,14 +24,11 @@ public class Weight : Item
     {
         
     }
-    public override void SoldItem()
+    public override void SoldItem(float quantity)
     {
-        
+        _weight -= quantity;
     }
-    public override void BoughtItem()
-    {
-        
-    }
+   
     public override bool LowQuantity()
     {
         if (_minimumQuantity > _weight)
@@ -73,5 +70,10 @@ public class Weight : Item
     public override string WriteFile()
     {
         return $"Weight|{_id}|{_name}|{_description}|{_weight}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+    }
+
+    public override bool AcceptsFloat()
+    {
+        return true;
     }
 }

@@ -188,4 +188,19 @@ public class Stock
         }
 
     }
+
+    public bool CheckFloat(int index)
+    {
+        return _inventory[index].AcceptsFloat();
+    }
+
+    public float FindSellPrice(int index)
+    {
+        return _inventory[index].GetSellPrice();
+    }
+
+    public void SubtractSoldItem(int index, float quantity)
+    {
+        _inventory[index].SoldItem(quantity);
+    }
 }

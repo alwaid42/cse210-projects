@@ -24,14 +24,11 @@ public class Volume : Item
     {
         
     }
-    public override void SoldItem()
+    public override void SoldItem(float quantity)
     {
-        
+        _volume -= quantity;
     }
-    public override void BoughtItem()
-    {
-        
-    }
+    
     public override bool LowQuantity()
     {
         if (_minimumQuantity > _volume)
@@ -72,5 +69,10 @@ public class Volume : Item
     public override string WriteFile()
     {
         return $"Volume|{_id}|{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+    }
+
+    public override bool AcceptsFloat()
+    {
+        return true;
     }
 }

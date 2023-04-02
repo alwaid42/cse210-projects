@@ -24,14 +24,11 @@ public class Length : Item
     {
         
     }
-    public override void SoldItem()
+    public override void SoldItem(float quantity)
     {
-        
+        _length -= quantity;
     }
-    public override void BoughtItem()
-    {
-        
-    }
+
     public override bool LowQuantity()
     {
         if (_minimumQuantity > _length)
@@ -73,5 +70,10 @@ public class Length : Item
     public override string WriteFile()
     {
         return $"Length|{_id}|{_name}|{_description}|{_length}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+    }
+
+    public override bool AcceptsFloat()
+    {
+        return true;
     }
 }

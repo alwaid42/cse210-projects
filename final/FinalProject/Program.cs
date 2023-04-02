@@ -216,7 +216,7 @@ class Program
                         switch (inputSale)
                         {
                             case "1":
-                                mySale.AddItem();
+                                mySale.AddItem(myStock);
                                 break;
                             case "2":
                                 mySale.RemoveItem();
@@ -227,7 +227,8 @@ class Program
                                 string saleFinish = Console.ReadLine();
                                 if (saleFinish == "YES")
                                     {
-                                        Console.WriteLine("Sale Finalized.");
+                                        Console.WriteLine("Sale Finished.");
+                                        mySale.FinishSale(myStock);
                                         mySale.PrintTotal();
                                         mySales.AddSale(mySale);
                                         loopBreakSale = false;
