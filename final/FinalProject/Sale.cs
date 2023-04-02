@@ -1,6 +1,6 @@
 public class Sale
 {
-    private List<ItemQuantity> _saleList;
+    private List<ItemQuantity> _saleList = new List<ItemQuantity>();
     private float _totalPrice;
     private DateTime _saleDate;
     private int _userId;
@@ -26,12 +26,9 @@ public class Sale
             _totalPrice += iq.ReturnSubTotal();
         }
     }
-    public void FinishSale()
-    {
-        
-    }
-    public void CancelSale()
-    {
 
+    public void PrintTotal()
+    {
+        Console.WriteLine($"Total Price: {_totalPrice}");
     }
 }

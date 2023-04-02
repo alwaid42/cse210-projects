@@ -13,7 +13,7 @@ public class Length : Item
 
     public override void ReturnItem()
     {
-        Console.WriteLine($"ID: | Item: {_name} | Descr: {_description} | Quant: {_length} | Minimun: {_minimumQuantity} | Paid :{_pricePaid} US$| Sell: {_sellPrice} US$");
+        Console.WriteLine($"ID: {_id}| Item: {_name} | Descr: {_description} | Quant: {_length} | Minimun: {_minimumQuantity} | Paid :{_pricePaid} US$| Sell: {_sellPrice} US$");
     }
 
     public override void SetItem()
@@ -72,6 +72,6 @@ public class Length : Item
 
     public override string WriteFile()
     {
-        return $"Length||{_name}|{_description}|{_length}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Length|{_id}|{_name}|{_description}|{_length}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }

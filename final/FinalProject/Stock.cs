@@ -171,14 +171,12 @@ public class Stock
             do
             {
 
-                Console.WriteLine("Which item in the list you want to update? To finish updating press enter");
+                Console.WriteLine("Which item number in the list you want to update? To finish updating press enter");
                 input = Console.ReadLine();
                 if (input != "")
                 {
                     int index = int.Parse(input);
-                    Console.WriteLine($"{index}");
                     int teste = myDict[index];
-                    Console.WriteLine($"{teste}");
                     UpdateItem(teste);
                 }
                 

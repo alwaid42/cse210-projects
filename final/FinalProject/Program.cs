@@ -222,13 +222,34 @@ class Program
                                 mySale.RemoveItem();
                                 break;
                             case "3":
-                                mySale.FinishSale();
-                                mySales.AddSale(mySale);
-                                loopBreakSale = false;
+                                Console.WriteLine("Are you sure you want to finish this sale? This action cannot be undone.");
+                                Console.WriteLine("Type YES to confirm finalization.");
+                                string saleFinish = Console.ReadLine();
+                                if (saleFinish == "YES")
+                                    {
+                                        Console.WriteLine("Sale Finalized.");
+                                        mySale.PrintTotal();
+                                        mySales.AddSale(mySale);
+                                        loopBreakSale = false;
+                                    }
+                                else
+                                    {
+                                        Console.WriteLine("Failed to confirm Finalization.");
+                                    }
                                 break;
                             case "4":
-                                mySale.CancelSale();
-                                loopBreakSale = false;
+                                Console.WriteLine("Are you sure you want to cancel this sale? This action cannot be undone.");
+                                Console.WriteLine("Type YES to confirm cancelation.");
+                                string saleCancel = Console.ReadLine();
+                                if (saleCancel == "YES")
+                                    {
+                                        Console.WriteLine("Sale CANCELLED.");
+                                         loopBreakSale = false;
+                                    }
+                                else
+                                    {
+                                        Console.WriteLine("Failed to confirm cancelation.");
+                                    }
                                 break;
                             default:
                                 Console.WriteLine("Invalid option. Please enter a valid choice.");

@@ -13,7 +13,7 @@ public class Volume : Item
 
     public override void ReturnItem()
     {
-        Console.WriteLine($"ID: | Item: {_name} | Descr: {_description} | Quant: {_volume} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
+        Console.WriteLine($"ID: {_id}| Item: {_name} | Descr: {_description} | Quant: {_volume} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
     }
 
     public override void SetItem()
@@ -71,6 +71,6 @@ public class Volume : Item
 
     public override string WriteFile()
     {
-        return $"Volume||{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Volume|{_id}|{_name}|{_description}|{_volume}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }

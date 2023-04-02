@@ -13,7 +13,7 @@ public class Weight : Item
 
     public override void ReturnItem()
     {
-        Console.WriteLine($"ID: | Item: {_name} | Descr: {_description} | Quant: {_weight} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
+        Console.WriteLine($"ID: {_id}| Item: {_name} | Descr: {_description} | Quant: {_weight} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
     }
 
     public override void SetItem()
@@ -72,6 +72,6 @@ public class Weight : Item
 
     public override string WriteFile()
     {
-        return $"Weight||{_name}|{_description}|{_weight}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Weight|{_id}|{_name}|{_description}|{_weight}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 }

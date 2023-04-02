@@ -1,6 +1,6 @@
 public class SalesRecord
 {
-    private List<Sale> _salesRecord;
+    private List<Sale> _salesRecord = new List<Sale>();
 
     public void AddSale(Sale sale)
     {

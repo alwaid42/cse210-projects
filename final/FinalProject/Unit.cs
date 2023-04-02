@@ -18,7 +18,7 @@ public class Unit : Item
 
     public override void ReturnItem()
     {
-        Console.WriteLine($"ID: | Item: {_name} | Descr: {_description} | Quant: {_unit} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
+        Console.WriteLine($"ID: {_id} | Item: {_name} | Descr: {_description} | Quant: {_unit} | Minimun: {_minimumQuantity} | Paid: {_pricePaid} US$| Sell: {_sellPrice} US$");
     }
 
     public override void SetItem()
@@ -77,7 +77,7 @@ public class Unit : Item
 
     public override string WriteFile()
     {
-        return $"Unit||{_name}|{_description}|{_unit}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
+        return $"Unit|{_id}|{_name}|{_description}|{_unit}|{_minimumQuantity}|{_pricePaid}|{_sellPrice}";
     }
 
 }
