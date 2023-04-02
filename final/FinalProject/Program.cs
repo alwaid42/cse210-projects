@@ -231,6 +231,7 @@ class Program
                                         mySale.FinishSale(myStock);
                                         mySale.PrintTotal();
                                         mySales.AddSale(mySale);
+                                        mySales.SaveSales();
                                         loopBreakSale = false;
                                     }
                                 else
@@ -269,6 +270,7 @@ class Program
                 case "4":
                     Console.Clear();
                     Console.WriteLine("SALES REPORT");
+                    mySales.SaleReport();
                     break;
 
                 case "5":

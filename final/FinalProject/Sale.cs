@@ -4,12 +4,22 @@ public class Sale
     private float _totalPrice;
     private DateTime _saleDate;
     private int _userId;
+    private bool _wasSaved;
+
+    public void SaleRed(int userId, DateTime saleDate, float totalPrice)
+    {
+        _userId = userId;
+        _saleDate = saleDate;
+        _totalPrice = totalPrice;
+        _wasSaved = true;
+    }
 
     public void StartSale(int userID)
     {
         _totalPrice = 0;
         _saleDate = DateTime.Now;
         _userId = userID;
+        _wasSaved = false;
     }
     public void AddItem(Stock myStock)
     {
@@ -68,5 +78,20 @@ public class Sale
         {
             myStock.SubtractSoldItem(iq.GetQuantityId(), iq.GetQuantity());
         }
+    }
+
+    public string WriteSale()
+    {
+        return $"{_userId}|{_totalPrice}|{_saleDate}";
+    }
+
+    public bool WasSaved()
+    {
+        return _wasSaved;
+    }
+
+    public void SavedSale()
+    {
+        _wasSaved = true;
     }
 }
